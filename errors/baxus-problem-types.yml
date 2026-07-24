@@ -1,0 +1,51 @@
+generated: '2026-07-18'
+method: probed
+format: nestjs-http-exception
+source: >-
+  Observed verbatim from live probes of https://services.baxus.co/ on 2026-07-18.
+  BAXUS publishes no error reference; the backend is a NestJS application that
+  returns the framework's default HttpException envelope. BAXUS does NOT use
+  RFC 9457 application/problem+json. Only the 404 shape was directly observed;
+  the other status rows are the standard NestJS envelope for those codes and are
+  marked derived.
+envelope:
+  media_type: application/json
+  shape: '{ "message": string | string[], "error": string, "statusCode": number }'
+  notes: >-
+    On 404 the observed body is
+    {"message":"Cannot GET <path>","error":"Not Found","statusCode":404}.
+    NestJS validation errors return message as an array of strings.
+problems:
+- status: 400
+  title: Bad Request
+  meaning: Request validation failed (e.g. missing or malformed query parameters).
+  error: Bad Request
+  observed: false
+- status: 401
+  title: Unauthorized
+  meaning: Authentication required or credentials invalid on a protected endpoint.
+  error: Unauthorized
+  observed: false
+- status: 403
+  title: Forbidden
+  meaning: Authenticated principal lacks permission for the resource.
+  error: Forbidden
+  observed: false
+- status: 404
+  title: Not Found
+  meaning: The route or resource does not exist. Observed body was 'Cannot GET <path>'.
+  error: Not Found
+  observed: true
+- status: 429
+  title: Too Many Requests
+  meaning: The client exceeded the per-window rate-limit quota (see rate-limits/baxus-rate-limits.yml).
+  error: Too Many Requests
+  observed: false
+- status: 500
+  title: Internal Server Error
+  meaning: Unhandled server-side error.
+  error: Internal Server Error
+  observed: false
+related:
+  rate_limits: rate-limits/baxus-rate-limits.yml
+  conventions: conventions/baxus-conventions.yml

@@ -1,0 +1,24 @@
+generated: '2026-07-18'
+method: searched
+source: live probes 2026-07-18
+hosts:
+- host: https://baxus.co
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://services.baxus.co
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+notes: >-
+  No /.well-known discovery documents are published on either the marketing host
+  (baxus.co) or the API host (services.baxus.co). Absence recorded for audit; no
+  WellKnown/SecurityTxt pointer is wired because nothing returned 200.

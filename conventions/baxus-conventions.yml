@@ -1,0 +1,91 @@
+generated: '2026-07-18'
+method: derived
+source: >-
+  Derived from live probes of https://services.baxus.co/ (2026-07-18) and from
+  the public endpoint usage in BAXUS's own BOB agent
+  (github.com/BAXUSNFT/bob — src/actions/whiskey-recommendation.ts) and
+  third-party integrations (AI-Baxus-Bottle-Comparator). BAXUS publishes no
+  developer documentation, so these cross-cutting conventions are observed /
+  inferred, not vendor-stated.
+description: >-
+  How the BAXUS backend API behaves across endpoints: base URL, request style,
+  authentication posture, pagination, error envelope, security headers, and
+  rate-limit signaling. These are runtime-semantics conventions that no OpenAPI
+  is published for.
+
+base_url: https://services.baxus.co
+api_style: REST over HTTPS, JSON responses (NestJS backend)
+
+authentication:
+  scheme: none-observed
+  detail: >-
+    The evidenced read endpoints (bottle/listing search, user bar collections)
+    are called without an Authorization header in both first-party and
+    third-party code. BAXUS documents no public API auth scheme; write/account
+    operations are presumed session-authenticated behind the web app.
+
+idempotency:
+  supported: false
+  detail: No idempotency-key header or documented idempotency contract observed.
+
+pagination:
+  style: offset
+  request_params:
+    from: zero-based offset of the first result
+    size: page size (number of results)
+  example: /api/search/listings?from=0&size=20&listed=true
+  detail: >-
+    Offset pagination via from/size query parameters, observed in the
+    /api/search/listings usage. Response envelope not captured (endpoint
+    returned 404 at probe time).
+
+filtering:
+  observed_params:
+    listed: boolean — restrict to actively listed marketplace items
+  detail: Query-parameter filtering observed on the search/listings surface.
+
+error_envelope:
+  media_type: application/json
+  shape: '{ "message": string | string[], "error": string, "statusCode": number }'
+  detail: NestJS default HttpException envelope. See errors/baxus-problem-types.yml.
+
+request_tracing:
+  request_id_header: none-observed
+
+versioning:
+  scheme: uri-prefix
+  detail: Endpoints sit under an unversioned /api/ path prefix; no version header or date-based versioning observed.
+
+rate_limiting:
+  signaled: true
+  headers: [x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset]
+  detail: Fixed-window quota signaled on every response. See rate-limits/baxus-rate-limits.yml.
+
+security_headers:
+  hsts: 'max-age=15552000; includeSubDomains'
+  csp: present (Helmet default policy)
+  x_content_type_options: nosniff
+  x_frame_options: SAMEORIGIN
+  referrer_policy: no-referrer
+  detail: Backend sets Helmet security headers on responses.
+
+known_endpoints:
+- method: GET
+  path: /api/search/listings
+  purpose: Search marketplace listings (offset paginated; listed=true for active listings).
+  status_at_probe: 404
+  evidence: github.com/geeky-hypertext629/AI-Baxus-Bottle-Comparator popup.js
+- method: GET
+  path: /api/bar/user/{username}
+  purpose: Return the bottles in a BoozApp user's bar/collection.
+  status_at_probe: 404
+  evidence: github.com/BAXUSNFT/bob src/actions/whiskey-recommendation.ts
+  note: >-
+    Both routes are evidenced in real integration code but returned 404 at
+    probe time (2026-07-18); the public API surface appears to have moved or now
+    requires resources/paths not publicly documented.
+
+related:
+  errors: errors/baxus-problem-types.yml
+  rate_limits: rate-limits/baxus-rate-limits.yml
+  domain_security: security/baxus-domain-security.yml

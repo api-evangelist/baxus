@@ -1,8 +1,24 @@
 aid: baxus
 name: Baxus
-description: 'Baxus is a company surfaced as a portfolio company of multicoin-capital and added to the
-  API Evangelist network as a stub for enrichment. Sector: crypto-web3. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: 'BAXUS is a peer-to-peer marketplace for buying, selling, trading, and storing fine and rare
+  wine and spirits, built on the Solana blockchain. Founded in 2021 by Tzvi Wiesel and based in Woodland
+  Park, New Jersey, BAXUS authenticates physical bottles and holds them in climate-controlled vaults, then
+  tokenizes each as an NFT that serves as a digital certificate of ownership and provenance. Beyond the
+  marketplace and Vault, BAXUS operates the BoozApp collection app, an open-source AI whiskey sommelier
+  agent (BOB), and Whisky-Goggles AI bottle recognition. Its backend API at services.baxus.co powers bottle
+  search, marketplace listings, and user bar collections. Backed by Multicoin Capital.'
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://www.baxus.co/assets/icons/baxus_gold.svg
 url: https://raw.githubusercontent.com/api-evangelist/baxus/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,11 +28,37 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
 - Crypto Web3
-apis: []
+- Blockchain
+- Solana
+- NFT
+- Spirits
+- Wine
+- Whiskey
+- Marketplace
+- Collectibles
+apis:
+- name: BAXUS API (BoozApp / Marketplace)
+  description: 'The BAXUS backend service (NestJS) that powers the marketplace and BoozApp: bottle and
+    listing search, marketplace listings, and user "bar" collections. Undocumented public/read endpoints
+    are evidenced in first-party (BOB agent) and third-party integrations; the host enforces per-window
+    rate limiting and Helmet security headers, and returns a NestJS-style error envelope.'
+  humanURL: https://www.baxus.co
+  baseURL: https://services.baxus.co
+  tags:
+  - Spirits
+  - Marketplace
+  - Search
+  properties:
+  - type: RateLimits
+    url: rate-limits/baxus-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/baxus-problem-types.yml
+  - type: Conventions
+    url: conventions/baxus-conventions.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -25,3 +67,20 @@ maintainers:
 common:
 - type: Website
   url: https://baxus.co
+- type: GitHubOrganization
+  url: https://github.com/BAXUSNFT
+- type: PrivacyPolicy
+  url: https://www.baxus.co/privacy
+- type: TermsOfService
+  url: https://www.baxus.co/termsconditions
+- type: Login
+  url: https://www.baxus.co/login
+- type: DomainSecurity
+  url: security/baxus-domain-security.yml
+- type: LLMsTxt
+  url: llms/baxus-llms.txt
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

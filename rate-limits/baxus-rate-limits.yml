@@ -1,0 +1,46 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+provider: Baxus
+providerId: baxus
+generated: '2026-07-18'
+created: '2026-07-18'
+modified: '2026-07-18'
+method: probed
+source: >-
+  Live HTTP probe of https://services.baxus.co/ on 2026-07-18. The BAXUS backend
+  (NestJS) returns standard IETF-style rate-limit headers on every response; the
+  values below are observed verbatim from the response headers. BAXUS publishes
+  no rate-limit documentation, so limits are not broken out per plan or per
+  endpoint.
+tags:
+- Rate Limiting
+- Spirits
+description: >-
+  The BAXUS services API advertises a fixed-window request quota via
+  x-ratelimit-* response headers. A single anonymous client observed a limit of
+  3000 requests per window with a reset timestamp.
+headers:
+  limit: x-ratelimit-limit
+  remaining: x-ratelimit-remaining
+  reset: x-ratelimit-reset
+responseCodes:
+  throttled: 429
+limits:
+- name: Default request quota
+  scope: client
+  metric: requests_per_window
+  limit: 3000
+  timeFrame: window
+  observed:
+    x-ratelimit-limit: '3000'
+    x-ratelimit-remaining: '2999'
+    x-ratelimit-reset: '1784388555'
+policies:
+- name: Fixed window
+  description: >-
+    x-ratelimit-reset carries the UNIX epoch (seconds) at which the remaining
+    count resets. Exact window duration is not documented by BAXUS.
+- name: Signaling
+  description: >-
+    Every response (including 404s) carries the x-ratelimit-limit /
+    x-ratelimit-remaining / x-ratelimit-reset triplet.
