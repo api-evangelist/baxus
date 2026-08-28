@@ -7,6 +7,17 @@ description: 'BAXUS is a peer-to-peer marketplace for buying, selling, trading, 
   marketplace and Vault, BAXUS operates the BoozApp collection app, an open-source AI whiskey sommelier
   agent (BOB), and Whisky-Goggles AI bottle recognition. Its backend API at services.baxus.co powers bottle
   search, marketplace listings, and user bar collections. Backed by Multicoin Capital.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
