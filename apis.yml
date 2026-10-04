@@ -51,6 +51,7 @@ tags:
 - Whiskey
 - Marketplace
 - Collectibles
+- Web3
 apis:
 - name: BAXUS API (BoozApp / Marketplace)
   description: 'The BAXUS backend service (NestJS) that powers the marketplace and BoozApp: bottle and
