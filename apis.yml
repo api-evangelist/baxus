@@ -77,6 +77,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: RateLimits
+  url: rate-limits/baxus-rate-limits.yml
 - type: Website
   url: https://baxus.co
 - type: GitHubOrganization
