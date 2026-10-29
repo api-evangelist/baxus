@@ -64,6 +64,92 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Baxus is a company surfaced as a portfolio company of multicoin-capital and added to the API Evangelist network as a stub for enrichment. Sector: crypto-web3. This profile is a lead awaiting the enrichment pipeline.
+BAXUS is a peer-to-peer marketplace for buying, selling, trading, and storing fine and rare wine and spirits, built on the Solana blockchain. Founded in 2021 by Tzvi Wiesel and based in Woodland Park, New Jersey, BAXUS authenticates physical bottles and holds them in climate-controlled vaults, then tokenizes each as an NFT that serves as a digital certificate of ownership and provenance. Beyond the marketplace and Vault, BAXUS operates the BoozApp collection app, an open-source AI whiskey sommelier agent (BOB), and Whisky-Goggles AI bottle recognition. Its backend API at services.baxus.co powers bottle search, marketplace listings, and user bar collections. Backed by Multicoin Capital.
 
-Backed by: multicoin-capital — https://baxus.co
+**Areas:** Company · Web3 · Blockchain · Solana · NFT · Spirits · Wine · Whiskey · Marketplace · Collectibles
+
+## Baxus on APIs.io
+
+Everything profiled for Baxus is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/baxus/](https://apis.io/providers/baxus/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [BAXUS API (BoozApp / Marketplace)](https://apis.io/apis/baxus/baxus-api-boozapp-marketplace/) — The BAXUS backend service (NestJS) that powers the marketplace and BoozApp: bottle and listing search, marketplace listings, and user "bar" collections.…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Baxus Domain Security](https://apis.io/security/baxus/baxus-domain-security/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Baxus Rate Limits](https://apis.io/rate-limits/baxus/baxus-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://baxus.co)
+- [Terms of service](https://www.baxus.co/termsconditions)
+- [Privacy policy](https://www.baxus.co/privacy)
+- [GitHub](https://github.com/BAXUSNFT)
+
+## API Evangelist rating
+
+**Kin Score 15.7** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 23.7 |
+| Developer ergonomics | 0.0 |
+| Access clarity | 27.6 |
+
+**Agent readiness 5.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 13.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/baxus/](https://apis.io/providers/baxus/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Baxus: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/baxus/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
